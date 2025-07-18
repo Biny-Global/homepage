@@ -1,0 +1,149 @@
+/* 마우스 팔로워 스타일 */
+.mouseFollower {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(59, 130, 246, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  backdrop-filter: blur(2px);
+  background: rgba(59, 130, 246, 0.1);
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.3),
+    inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+/* 마우스 내부 점 제거됨 */
+
+.clickEffect {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(59, 130, 246, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.4) 0%,
+    rgba(139, 92, 246, 0.3) 30%,
+    rgba(16, 185, 129, 0.2) 60%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 50px rgba(59, 130, 246, 0.6),
+    0 0 100px rgba(59, 130, 246, 0.3),
+    inset 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.clickPulse {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(139, 92, 246, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.6) 0%,
+    rgba(16, 185, 129, 0.4) 50%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 40px rgba(139, 92, 246, 0.8),
+    inset 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.clickParticle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(
+    circle,
+    rgba(244, 63, 94, 0.9) 0%,
+    rgba(245, 158, 11, 0.8) 50%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 15px rgba(244, 63, 94, 0.6),
+    0 0 30px rgba(245, 158, 11, 0.4);
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+  .mouseFollower {
+    border-color: rgba(139, 92, 246, 0.6);
+    background: rgba(139, 92, 246, 0.1);
+    box-shadow: 
+      0 0 20px rgba(139, 92, 246, 0.3),
+      inset 0 0 20px rgba(139, 92, 246, 0.1);
+  }
+
+  /* 마우스 내부 점 제거됨 */
+
+  .clickEffect {
+    border-color: rgba(139, 92, 246, 0.9);
+    background: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.4) 0%,
+      rgba(75, 0, 130, 0.3) 30%,
+      rgba(138, 43, 226, 0.2) 60%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 50px rgba(139, 92, 246, 0.6),
+      0 0 100px rgba(139, 92, 246, 0.3),
+      inset 0 0 30px rgba(139, 92, 246, 0.3);
+  }
+
+  .clickPulse {
+    border-color: rgba(75, 0, 130, 0.8);
+    background: radial-gradient(
+      circle,
+      rgba(75, 0, 130, 0.6) 0%,
+      rgba(138, 43, 226, 0.4) 50%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 40px rgba(75, 0, 130, 0.8),
+      inset 0 0 20px rgba(75, 0, 130, 0.4);
+  }
+
+  .clickParticle {
+    background: radial-gradient(
+      circle,
+      rgba(138, 43, 226, 0.9) 0%,
+      rgba(72, 61, 139, 0.8) 50%,
+      transparent 100%
+    );
+    box-shadow: 
+      0 0 15px rgba(138, 43, 226, 0.6),
+      0 0 30px rgba(72, 61, 139, 0.4);
+  }
+}
+
+/* 모바일에서는 마우스 팔로워 숨기기 */
+@media (max-width: 768px) {
+  .mouseFollower,
+  .clickEffect,
+  .clickPulse,
+  .clickParticle {
+    display: none;
+  }
+}
+
+/* 터치 디바이스에서는 마우스 팔로워 숨기기 */
+@media (hover: none) and (pointer: coarse) {
+  .mouseFollower,
+  .clickEffect,
+  .clickPulse,
+  .clickParticle {
+    display: none;
+  }
+} 

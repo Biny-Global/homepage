@@ -1,0 +1,231 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.25rem 0;
+  background: rgba(10, 10, 10, 0.3);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav.scrolled {
+  padding: 0.75rem 0;
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logoImage {
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.logo:hover .logoImage {
+  transform: scale(1.1);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+}
+
+.logoText {
+  background: var(--tech-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  color: var(--foreground);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.navText {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.engText,
+.korText {
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+.korText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.navLink:hover .engText {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.navLink:hover .korText {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.navLink:hover {
+  color: var(--primary);
+}
+
+.mobileToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.mobileToggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(180deg);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(15px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.mobileNavLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.mobileNavLinks li {
+  margin: 2rem 0;
+}
+
+.mobileNavLink {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--foreground);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.mobileNavLink:hover {
+  color: var(--primary);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+  
+  .mobileToggle {
+    display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mobileMenu {
+    display: flex;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .mobileNavLink {
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileNavLink {
+    font-size: 1.5rem;
+  }
+  
+  .mobileNavLinks li {
+    margin: 1.5rem 0;
+  }
+} 

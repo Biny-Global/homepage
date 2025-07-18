@@ -376,8 +376,69 @@ export default function Home() {
     );
   }
 
+  // 구조화 데이터 (JSON-LD)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'BINY',
+    alternateName: '비니',
+    description: 'BINY는 혁신적인 클라우드 및 AI 소프트웨어 솔루션을 제공하는 기업입니다.',
+    url: 'https://biny.com',
+    logo: 'https://biny.com/assets/images/logo.png',
+    foundingDate: '2023',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'biny.global@gmail.com',
+      contactType: 'customer service',
+      availableLanguage: ['Korean', 'English']
+    },
+    sameAs: [
+      'https://instagram.com/biny_.official',
+      'https://github.com/biny-Products'
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'BINY 제품 및 서비스',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'SoftwareApplication',
+            name: 'BINY Cloud Platform',
+            description: '클라우드 기반 통합 관리 플랫폼으로 확장 가능한 인프라 솔루션을 제공합니다.',
+            applicationCategory: 'Cloud Platform'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'SoftwareApplication',
+            name: 'BINY AI Analytics',
+            description: '인공지능 기반 데이터 분석 도구로 비즈니스 인사이트를 제공합니다.',
+            applicationCategory: 'Analytics'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'SoftwareApplication',
+            name: 'BINY Security Suite',
+            description: '포괄적인 보안 솔루션으로 기업 데이터를 안전하게 보호합니다.',
+            applicationCategory: 'Security'
+          }
+        }
+      ]
+    }
+  };
+
       return (
       <main className={styles.main}>
+        {/* 구조화 데이터 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        
         {/* 우주 배경 효과들 */}
         <SpaceDust />
         <Planets />

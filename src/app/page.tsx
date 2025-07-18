@@ -383,8 +383,8 @@ export default function Home() {
     name: 'BINY',
     alternateName: '비니',
     description: 'BINY는 혁신적인 클라우드 및 AI 소프트웨어 솔루션을 제공하는 기업입니다.',
-    url: 'https://biny.com',
-    logo: 'https://biny.com/assets/images/logo.png',
+    url: 'https://biny.cloud',
+    logo: 'https://biny.cloud/assets/images/logo.png',
     foundingDate: '2023',
     contactPoint: {
       '@type': 'ContactPoint',

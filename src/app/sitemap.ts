@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://biny.com'
+  const baseUrl = 'https://biny.cloud'
   
   return [
     {

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "DevOps", "보안", "데이터 분석", "디지털 전환", "기업 솔루션",
     "Cloud Platform", "AI Analytics", "Security Suite", "Monitoring"
   ],
-  authors: [{ name: "BINY Global", url: "https://biny.com" }],
+  authors: [{ name: "BINY Global", url: "https://biny.cloud" }],
   creator: "BINY Global",
   publisher: "BINY Global",
   formatDetection: {
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://biny.com'),
+  metadataBase: new URL('https://biny.cloud'),
   
   // Open Graph (Facebook, KakaoTalk, etc.)
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://biny.com',
+    url: 'https://biny.cloud',
     title: 'BINY | 혁신적인 클라우드 & AI 솔루션',
     description: 'BINY(비니)는 혁신적인 클라우드 및 AI 소프트웨어 솔루션을 제공합니다. 클라우드 플랫폼, AI 분석, 보안 솔루션으로 기업의 디지털 전환을 가속화하세요.',
     siteName: 'BINY',

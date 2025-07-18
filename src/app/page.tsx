@@ -8,13 +8,7 @@ import styles from './page.module.css';
 import { useEffect, useState, useMemo } from 'react';
 import { sendEmail, isEmailJSConfigured } from '@/lib/emailjs';
 
-interface Shape {
-  id: number;
-  type: string;
-  size: number;
-  left: number;
-  top: number;
-}
+
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -35,14 +29,7 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
   
-  const products = [
-    { name: 'BINY Cloud Platform', icon: Cloud },
-    { name: 'BINY AI Analytics', icon: BarChart3 },
-    { name: 'BINY Data Pipeline', icon: Cpu },
-    { name: 'BINY Security Suite', icon: Shield },
-    { name: 'BINY DevOps Tools', icon: Package },
-    { name: 'BINY Monitoring', icon: Zap }
-  ];
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -214,8 +201,23 @@ export default function Home() {
   const softwareProducts = [
     {
       title: "Cloud Bridge",
-      description: "원클릭으로 쉽고 빠르게 클라우드 인프라를 구축하고 관리합니다.",
+      description: "원클릭으로 쉽고 빠르게 클라우드 인프라를 구축하고 관리할 수 있는 서비스입니다.",
 
+      buttonText: "자세히 보기"
+    },
+    {
+      title: "AgentBox",
+      description: "다양한 분야의 전문가 AI 에이전트를 마켓 플레이스로 제공합니다.",
+      buttonText: "자세히 보기"
+    },
+    {
+      title: "Medora",
+      description: "AI가 건강 상태를 진단하고, 나만을 위한 루틴을 설계해주는 스마트 헬스 코치 앱입니다.",
+      buttonText: "자세히 보기"
+    },
+    {
+      title: "Signeo",
+      description: "계약서를 업로드하면 AI가 요약하고 위험 조항을 알려주는 스마트 계약서 관리 서비스입니다.",
       buttonText: "자세히 보기"
     }
     
@@ -243,14 +245,7 @@ export default function Home() {
     },
   };
 
-  const iconVariants = {
-    hidden: { scale: 0, rotate: -180 },
-    visible: {
-      scale: 1,
-      rotate: 0,
-      transition: { duration: 0.5 },
-    },
-  };
+
 
   // 로딩 스피너 컴포넌트
   const LoadingSpinner = () => (
@@ -294,7 +289,6 @@ export default function Home() {
       
       // 화면을 여러 구역으로 나누어 자연스러운 분포 생성
       const gridSize = 8; // 8x8 격자
-      const cellSize = 100 / gridSize;
       
              for (let i = 0; i < 80; i++) {
         let left: number, top: number, attempts = 0;
@@ -611,7 +605,7 @@ export default function Home() {
           <motion.div className={styles.productsGrid} variants={itemVariants}>
             <div className={styles.productsSlider}>
               {/* 원본 카드들 */}
-              {softwareProducts.map((product, index) => (
+              {softwareProducts.map((product, _) => (
                 <motion.div
                   key={`original-${product.title}`}
                   className={styles.productCard}
@@ -634,7 +628,7 @@ export default function Home() {
                 </motion.div>
               ))}
               {/* 복제된 카드들 (무한 루프용) */}
-              {softwareProducts.map((product, index) => (
+              {softwareProducts.map((product, _) => (
                 <motion.div
                   key={`duplicate-${product.title}`}
                   className={styles.productCard}

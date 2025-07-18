@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight, Package, Shield, Zap, Cloud, BarChart3, Cpu, ChevronUp, Instagram, Github } from 'lucide-react';
+import { ChevronDown, ArrowRight, Package, Shield, Zap, BarChart3, Cpu, ChevronUp, Instagram, Github } from 'lucide-react';
 import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import styles from './page.module.css';
@@ -178,9 +178,9 @@ export default function Home() {
         img.addEventListener('contextmenu', preventContextMenu);
         img.addEventListener('dragstart', preventDragStart);
         img.addEventListener('selectstart', (e) => e.preventDefault());
-        (img.style as any).webkitUserSelect = 'none';
-        (img.style as any).webkitUserDrag = 'none';
-        (img.style as any).webkitTouchCallout = 'none';
+        (img.style as CSSStyleDeclaration & { webkitUserSelect: string; webkitUserDrag: string; webkitTouchCallout: string }).webkitUserSelect = 'none';
+        (img.style as CSSStyleDeclaration & { webkitUserSelect: string; webkitUserDrag: string; webkitTouchCallout: string }).webkitUserDrag = 'none';
+        (img.style as CSSStyleDeclaration & { webkitTouchCallout: string }).webkitTouchCallout = 'none';
       });
 
       // 인쇄 방지 시작
@@ -288,7 +288,6 @@ export default function Home() {
       const starPositions: { left: number; top: number; size: number; id: number; delay: number; duration: number; floatX: number; floatY: number }[] = [];
       
       // 화면을 여러 구역으로 나누어 자연스러운 분포 생성
-      const gridSize = 8; // 8x8 격자
       
              for (let i = 0; i < 80; i++) {
         let left: number, top: number, attempts = 0;
@@ -605,7 +604,7 @@ export default function Home() {
           <motion.div className={styles.productsGrid} variants={itemVariants}>
             <div className={styles.productsSlider}>
               {/* 원본 카드들 */}
-              {softwareProducts.map((product, _) => (
+              {softwareProducts.map((product) => (
                 <motion.div
                   key={`original-${product.title}`}
                   className={styles.productCard}
@@ -628,7 +627,7 @@ export default function Home() {
                 </motion.div>
               ))}
               {/* 복제된 카드들 (무한 루프용) */}
-              {softwareProducts.map((product, _) => (
+              {softwareProducts.map((product) => (
                 <motion.div
                   key={`duplicate-${product.title}`}
                   className={styles.productCard}

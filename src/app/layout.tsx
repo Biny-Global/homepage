@@ -63,17 +63,9 @@ export const metadata: Metadata = {
 
   // 파비콘 및 아이콘
   icons: {
-    icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#3b82f6' },
-    ],
+    icon: '/assets/images/logo.png',
+    apple: '/assets/images/logo.png',
+    shortcut: '/assets/images/logo.png',
   },
 
   // 추가 메타데이터

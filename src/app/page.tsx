@@ -217,25 +217,7 @@ export default function Home() {
       description: "원클릭으로 쉽고 빠르게 클라우드 인프라를 구축하고 관리합니다.",
 
       buttonText: "자세히 보기"
-    },
-    {
-      title: "Cloud Brid1e",
-      description: "원클릭으로 쉽고 빠르게 클라우드 인프라를 구축하고 관리합니다.",
-
-      buttonText: "자세히 보기"
-    },
-    {
-      title: "Cloud Brid1e",
-      description: "원클릭으로 쉽고 빠르게 클라우드 인프라를 구축하고 관리합니다.",
-
-      buttonText: "자세히 보기"
-    },
-    {
-      title: "Cloud Brid1e",
-      description: "원클릭으로 쉽고 빠르게 클라우드 인프라를 구축하고 관리합니다.",
-
-      buttonText: "자세히 보기"
-    },
+    }
     
   ];
 

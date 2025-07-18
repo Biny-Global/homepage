@@ -65,6 +65,18 @@ export const sendEmail = async (emailData: EmailData): Promise<boolean> => {
     
   } catch (error) {
     console.error('Email sending failed:', error);
+    
+    // EmailJS 특정 에러 정보
+    if (error && typeof error === 'object') {
+      console.error('Full error object:', JSON.stringify(error, null, 2));
+      if ('text' in error) {
+        console.error('EmailJS error text:', error.text);
+      }
+      if ('status' in error) {
+        console.error('EmailJS error status:', error.status);
+      }
+    }
+    
     // 더 자세한 에러 정보 출력
     if (error instanceof Error) {
       console.error('Error message:', error.message);
@@ -84,8 +96,16 @@ export const sendEmailWithAttachment = async (
     console.log('EmailJS Config:', {
       serviceId: EMAILJS_CONFIG.SERVICE_ID,
       templateId: EMAILJS_CONFIG.TEMPLATE_ID,
-      publicKey: EMAILJS_CONFIG.PUBLIC_KEY.substring(0, 5) + '...',
+      publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
       toEmail: EMAILJS_CONFIG.TO_EMAIL
+    });
+    
+    // 환경변수 확인
+    console.log('Environment variables:', {
+      NEXT_PUBLIC_EMAILJS_SERVICE_ID: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      NEXT_PUBLIC_EMAILJS_TO_EMAIL: process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL
     });
     
     // 파일이 없으면 일반 메일 전송

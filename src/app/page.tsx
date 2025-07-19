@@ -208,16 +208,19 @@ export default function Home() {
     {
       title: "AgentBox",
       description: "다양한 분야의 전문가 AI 에이전트를 마켓 플레이스로 제공합니다.",
+
       buttonText: "자세히 보기"
     },
     {
       title: "Medora",
       description: "AI가 건강 상태를 진단하고, 나만을 위한 루틴을 설계해주는 스마트 헬스 코치 앱입니다.",
+
       buttonText: "자세히 보기"
     },
     {
       title: "Signeo",
-      description: "계약서를 업로드하면 AI가 요약하고 위험 조항을 알려주는 스마트 계약서 관리 서비스입니다.",
+      description: "AI가 계약서를 요약하고 위험 조항을 알려주는 스마트 계약서 관리 서비스입니다.",
+
       buttonText: "자세히 보기"
     }
     
